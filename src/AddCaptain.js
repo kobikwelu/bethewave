@@ -27,7 +27,7 @@ class AddCaptain extends Component {
 
   updateLogonFields = (field, event) => {
       let captain = Object.assign({}, this.state.captain);
-        captain [field] = event.target.value;
+        captain[field] = event.target.value;
           this.setState({
               captain: captain
               })
@@ -54,10 +54,6 @@ class AddCaptain extends Component {
         );
      }
 
-     handleErrorMessage (){
-
-     }
-
     validateEmail(email) {
        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
        return re.test(email.toLowerCase());
@@ -81,6 +77,8 @@ class AddCaptain extends Component {
              isFailure: false
          }
        )
+       console.log ('state is '+ this.state.captain.firstname);
+       console.log ('state is '+ this.state.captain.isSuccess);
      } else if (response.status === 401){
        this.setState(
          captain : {
@@ -133,13 +131,11 @@ class AddCaptain extends Component {
                        onChange={this.updateLogonFields.bind(this, 'email')}></input>
                 <label htmlFor="email" data-error="Enter your email in the correct format">Email</label>
             </div>
-          <br/>
-          <br/>
             <div className="container">
               <button className="orange lighten-1 waves-effect waves-light btn" type="submit"
                         name="action"
                         onClick={this.handleSubmit.bind(this, 'handleSubmit')}
-                        disabled={ !isEnabled && isFailure }>Submit
+                        disabled={ !isEnabled }>Submit
               </button>
             </div>
 
