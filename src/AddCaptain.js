@@ -113,7 +113,7 @@ class AddCaptain extends Component {
         <a className="orange lighten-1 waves-effect waves-light btn modal-trigger" href="#modal1">Want to be a Captain</a>
         <div id="modal1" className="modal">
           <div className="modal-content">
-          <h1>Enter your contact details</h1>
+          <h4>Enter your contact details</h4>
 
           { isSuccess &&  <SuccessMessage /> }
           { isFailure &&  <FailedMessage /> }
